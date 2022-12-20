@@ -1,0 +1,404 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+p:not(.welcome-information-description,.research-information-description) {
+  color: white;
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+img {
+  height: 150px;
+
+  position: absolute;
+  top: 5%;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.park-area {
+  border: none;
+}
+
+.enclosure-container {
+  background-color: rgba(255, 255, 255, 0);
+  border: solid;
+  border-width: 5px;
+  border-radius: 1px;
+  border-color: rgba(255, 255, 255, 0);
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 300px;
+  height: 150px;
+
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.enclosure-container:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: white;
+  cursor: pointer;
+}
+
+.enclosure-container:hover img {
+  filter: brightness(0%) invert(100%);
+}
+
+.enclosure-container:active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.enclosure-container:active .research-container {
+  visibility: visible;
+  opacity: 1;
+}
+
+.enclosure-container img {
+  transition: filter 0.25s;
+}
+
+#shark-enclosure-container {
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+}
+
+#frog-enclosure-title {
+  font-size: 18px;
+}
+
+#platypus-enclosure-image {
+  top: 1%;
+}
+
+#turtle-enclosure-image {
+  top: 1%;
+  height: 120%;
+}
+
+#frog-enclosure-image {
+  top: 27%;
+  height: 75%;
+}
+
+#bird-enclosure-image {
+  top: 10%;
+}
+
+#shark-enclosure-image {
+  top: 6%;
+  height: 100%;
+}
+
+#giraffe-enclosure-image {
+  top: 16%;
+  height: 80%;
+}
+
+.food-outlet-container {
+  width: 300px;
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-outlet-image {
+  height: 80px;
+
+  position: absolute;
+}
+
+.washroom-container {
+  border: none;
+
+  flex-direction: row;
+}
+
+.washroom-container div {
+  height: 100%;
+  width: 50%;
+  border: none;
+}
+
+.washroom-container img {
+  height: 70%;
+
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+}
+
+.welcome-container,
+.research-container {
+  border: none;
+
+  visibility: hidden;
+  opacity: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.2s;
+}
+
+.welcome-container {
+  visibility: visible;
+  opacity: 1;
+}
+
+.welcome-background,
+.research-background {
+  background-color: black;
+  opacity: 0.5;
+
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-frame,
+.research-frame {
+  background-color: rgb(59, 59, 59);
+
+  border: solid;
+  border-color: rgb(48, 48, 48);
+  border-width: 5px;
+  border-radius: 1px;
+
+  width: 80%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.welcome-frame {
+  width: 40%;
+  height: auto;
+}
+
+.welcome-header-container,
+.research-header-container {
+  width: 60%;
+  height: auto;
+
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-header-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
+}
+
+.research-close-button {
+  background-color: rgba(255, 255, 255, 0);
+
+  border: none;
+  border-radius: 20px;
+
+  z-index: 1;
+
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.research-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.research-close-button-icon {
+  width: 80%;
+  height: 80%;
+
+  filter: brightness(0%) invert(100%);
+}
+
+.research-image-container {
+  width: 38%;
+  height: 100%;
+  
+  background-image: linear-gradient(to left, transparent, rgb(59, 59, 59)),
+    url("animal-research-images/platypus.png");
+  background-size: cover;
+
+  position: absolute;
+  right: 0px;
+}
+
+.welcome-header-container h1,
+.research-header-container h1,
+.research-header-container h2,
+.welcome-information-container div h3,
+.welcome-information-container div p,
+.research-information-container div h3,
+.research-information-container div p {
+  color: white;
+  font-family: 'Rubik', sans-serif;
+
+  width: 100%;
+
+  text-align: left;
+  margin: 0;
+}
+
+.welcome-header-container h1,
+.research-header-container h1 {
+  font-size: 40px;
+}
+
+.research-header-container h2 {
+  font-size: 30px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.welcome-information-container,
+.research-information-container {
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.welcome-information-container {
+  width: auto;
+}
+
+.welcome-information-subcontainer,
+.research-information-subcontainer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: auto;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  display: block;
+}
+
+.welcome-information-subcontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.welcome-information-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 70%;
+}
+
+.welcome-information-image {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 40px;
+}
+
+.welcome-information-title,
+.research-information-title {
+  font-size: 25px;
+
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+.welcome-information-description,
+.research-information-description {
+  font-size: 20px;
+}
+
+.welcome-information-close-button-container {
+  width: 100%;
+  height: auto;
+
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.welcome-information-close-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+
+  border: solid;
+  border-color: white;
+  border-radius: 1px;
+
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+
+  width: 20%;
+  
+  padding-top: 1%;
+  padding-bottom: 1%;
+
+  transition: background-color 0.25s, color 0.25s;
+  cursor: pointer;
+}
+
+.welcome-information-close-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgb(59, 59, 59);
+}
+
+.welcome-information-close-button:active {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.welcome-information-close-button:active .welcome-container {
+  visibility: hidden;
+  opacity: 0;
+}
